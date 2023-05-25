@@ -77,5 +77,32 @@ RSpec.describe MarketMoneyService do
       expect(attributes).to have_key(:vendor_count)
       expect(attributes[:vendor_count]).to be_a(Integer)
     end
+
+    it 'returns market vendors' do
+      vendor_service = MarketMoneyService.new.get_market_vendors(322458)
+      
+      vendors_data = vendor_service[:data]
+
+
+      vendors_data[0..9].each do |vendor|
+        attributes = vendor[:attributes]
+        expect(vendor).to have_key(:id)
+        expect(vendor[:id]).to be_a(String)
+
+        expect(attributes).to have_key(:name)
+        expect(attributes[:name]).to be_a(String)
+
+        expect(attributes).to have_key(:description)
+        expect(attributes[:description]).to be_a(String)
+
+        expect(attributes).to have_key(:contact_name)
+        expect(attributes[:contact_name]).to be_a(String)
+
+        expect(attributes).to have_key(:contact_phone)
+        expect(attributes[:contact_phone]).to be_a(String)
+
+        expect(attributes).to have_key(:credit_accepted)
+      end
+    end
   end
 end

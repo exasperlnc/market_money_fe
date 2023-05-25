@@ -4,8 +4,6 @@ RSpec.describe MarketService do
   context 'class methods' do
     it 'returns all markets' do
       @market_service = MarketService.new.get_markets
-      # require 'pry'; binding.pry
-      # expect(@market_service).to be_an(Array) 
 
       market_data = @market_service[:data]
 

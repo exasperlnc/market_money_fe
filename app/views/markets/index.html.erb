@@ -1,7 +1,20 @@
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<table>
+<tr>
+  <td> Name </td>
+  <td> City </td>
+  <td> State </td>
+</tr>
 <% @markets.each do |market| %>
-  <%= market.name %>
-  <%= market.city %>
-  <%= market.state %><br>
+<tr>
+  <td><%= market.name %></td>
+  <td><%= market.city %></td>
+  <td><%= market.state %></td>
   <!--link to 'More info', market_show_path(market) -->
+</tr>
 <% end %>
   

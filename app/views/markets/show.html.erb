@@ -1,9 +1,13 @@
-Name: <%= @market.name %>
-Street Address: <%= @market.street %>
-City: <%= @market.city %>
-County: <%= @market.county %>
-State: <%= @market.state %>
-Zip: <%= @market.zip %>
-Lon: <%= @market.lon %>
-Lat: <%= @market.lat %>
-Vendor Count: <%= @market.vendor_count %>
+<h1><%= @market.name %><h1>
+<h5>
+  <%= @market.street %><br>
+<%= @market.city %>, 
+<%= @market.state %>
+ <%= @market.zip%>
+</h5>
+Vendor Total: <%= @market.vendor_count %>
+
+<h3> Registered Vendors: </h3>
+  <% @vendors.each do |vendor| %>
+    <%= link_to "#{vendor.name}", vendor_path(vendor) %>
+  <% end %>

@@ -1,4 +1,4 @@
-class MarketService
+class MarketMoneyService
   
   def get_markets
     get_url("/api/v0/markets")  

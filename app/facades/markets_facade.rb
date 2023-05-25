@@ -21,7 +21,7 @@ attr_reader :id
 
   private
     def service
-      @_service ||= MarketService.new
+      @_service ||= MarketMoneyService.new
     end
 
     def format_data(data)

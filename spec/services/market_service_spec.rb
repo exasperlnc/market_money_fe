@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe MarketService do
+RSpec.describe MarketMoneyService do
   context 'class methods' do
     it 'returns all markets' do
-      market_service = MarketService.new.get_markets
+      market_service = MarketMoneyService.new.get_markets
       
       market_data = market_service[:data]
 
@@ -42,7 +42,7 @@ RSpec.describe MarketService do
 
     end
     it 'returns one market' do
-      market_service = MarketService.new.get_market(322458)
+      market_service = MarketMoneyService.new.get_market(322458)
 
       market = market_service[:data]
 

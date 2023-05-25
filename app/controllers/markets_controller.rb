@@ -1,11 +1,15 @@
 class MarketsController < ApplicationController
-  before_action :set_facade, only: [:index]
+  before_action :set_facade, only: [:index, :show]
   def index
-    @markets = @facade.markets
+    @markets = @_facade.markets
+  end
+
+  def show
+    @market = @_facade.market(params[:id])
   end
 
   private 
     def set_facade
-      @facade = MarketsFacade.new
+      @_facade ||= MarketsFacade.new
     end
 end

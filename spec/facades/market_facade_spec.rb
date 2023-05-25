@@ -14,4 +14,12 @@ RSpec.describe MarketsFacade do
       expect(markets[0]).to be_a(Market)
     end
   end
+
+  describe 'get_market' do
+    it 'creates market poro' do
+      market = @market_facade.market(322458)
+
+      expect(market).to be_a(Market)
+    end
+  end
 end

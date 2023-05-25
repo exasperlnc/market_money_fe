@@ -7,6 +7,12 @@ class MarketsFacade
     end
   end
 
+  def market(id)
+    result = service.get_market(id)[:data]
+
+    Market.new(format_data(result))
+  end
+
   private
     def service
       @_service ||= MarketService.new

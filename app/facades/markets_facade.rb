@@ -1,4 +1,10 @@
 class MarketsFacade
+attr_reader :id
+
+  def initialize(id = nil)
+    @id = id
+  end
+
   def markets
     results = service.get_markets[:data]
 
@@ -7,8 +13,8 @@ class MarketsFacade
     end
   end
 
-  def market(id)
-    result = service.get_market(id)[:data]
+  def market
+    result = service.get_market(@id)[:data]
 
     Market.new(format_data(result))
   end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe MarketsFacade do
   before :all do
-    @market_facade = MarketsFacade.new
+    @market_facade = MarketsFacade.new(322458)
   end
 
   describe 'get_markets' do
@@ -17,7 +17,7 @@ RSpec.describe MarketsFacade do
 
   describe 'get_market' do
     it 'creates market poro' do
-      market = @market_facade.market(322458)
+      market = @market_facade.market
 
       expect(market).to be_a(Market)
     end

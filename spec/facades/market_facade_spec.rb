@@ -25,7 +25,7 @@ RSpec.describe MarketsFacade do
 
   describe 'get_vendors' do
     it 'creates vendor poros' do
-      vendors = @markets_facade.vendors
+      vendors = @markets_facade.market_vendors
 
       expect(vendors).to be_a(Array)
       expect(vendors[0]).to be_a(Vendor)

@@ -9,14 +9,22 @@ attr_reader :id
     results = service.get_markets[:data]
 
     results.map do |result|
-      Market.new(format_data(result))
+      Market.new(format_market_data(result))
     end
   end
 
   def market
     result = service.get_market(@id)[:data]
 
-    Market.new(format_data(result))
+    Market.new(format_market_data(result))
+  end
+
+  def market_vendors
+    results = service.get_market_vendors(@id)[:data]
+
+    results.map do |result|
+      Vendor.new(format_vendor_data(result))
+    end
   end
 
   private
@@ -24,7 +32,7 @@ attr_reader :id
       @_service ||= MarketMoneyService.new
     end
 
-    def format_data(data)
+    def format_market_data(data)
       attributes = data[:attributes]
       {
         id: data[:id],
@@ -37,6 +45,18 @@ attr_reader :id
         lon: attributes[:lon],
         lat: attributes[:lat],
         vendor_count: attributes[:vendor_count]
+      }
+    end
+
+    def format_vendor_data(data)
+      attributes = data[:attributes]
+      {
+        id: data[:id],
+        name: attributes[:name],
+        description: attributes[:description],
+        contact_name: attributes[:contact_name],
+        contact_phone: attributes[:contact_phone],
+        credit_accepted: attributes[:credit_accepted]
       }
     end
 end

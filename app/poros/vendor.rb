@@ -14,4 +14,8 @@ class Vendor
     @contact_phone = info[:contact_phone]                
     @credit_accepted = info[:credit_accepted]                
   end
+
+  def credit?
+    
+  end
 end

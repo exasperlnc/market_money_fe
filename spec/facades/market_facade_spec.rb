@@ -35,7 +35,7 @@ RSpec.describe MarketsFacade do
 
   describe 'get_vendor' do
     it 'creates vendor poro' do
-      vendor = @vendor_facade.get_vendor
+      vendor = @vendor_facade.vendor
 
       expect(vendor).to be_a(Vendor)
     end

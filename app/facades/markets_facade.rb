@@ -27,7 +27,7 @@ attr_reader :id
     end
   end
 
-  def get_vendor
+  def vendor
     result = service.get_vendor(@id)[:data]
 
     Vendor.new(format_vendor_data(result))

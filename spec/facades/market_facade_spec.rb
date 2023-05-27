@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe MarketsFacade do
   before :all do
     @markets_facade = MarketsFacade.new(322458)
+    @vendor_facade = MarketsFacade.new(55823)
   end
 
   describe 'get_markets' do
@@ -29,6 +30,14 @@ RSpec.describe MarketsFacade do
 
       expect(vendors).to be_a(Array)
       expect(vendors[0]).to be_a(Vendor)
+    end
+  end
+
+  describe 'get_vendor' do
+    it 'creates vendor poro' do
+      vendor = @vendor_facade.get_vendor
+
+      expect(vendor).to be_a(Vendor)
     end
   end
 end

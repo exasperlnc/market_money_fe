@@ -27,6 +27,12 @@ attr_reader :id
     end
   end
 
+  def get_vendor
+    result = service.get_vendor(@id)[:data]
+
+    Vendor.new(format_vendor_data(result))
+  end
+
   private
     def service
       @_service ||= MarketMoneyService.new

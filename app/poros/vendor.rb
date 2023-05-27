@@ -16,6 +16,10 @@ class Vendor
   end
 
   def credit?
-    
+    if credit_accepted == false
+      "No"
+    else
+      "Yes"
+    end
   end
 end

@@ -20,4 +20,9 @@ RSpec.describe Vendor do
     expect(vendor).to have_attributes(contact_phone: "123-456-7890")
     expect(vendor).to have_attributes(credit_accepted: true)
   end
+  describe "Class#methods" do
+    it 'credit?' do
+      expect(vendor.credit?).to eq("Yes")
+    end
+  end
 end

@@ -104,5 +104,28 @@ RSpec.describe MarketMoneyService do
         expect(attributes).to have_key(:credit_accepted)
       end
     end
+    it 'returns one vendor' do
+      vendor_service = MarketMoneyService.new.get_vendor(55823)
+    
+      vendor_data = vendor_service[:data]
+
+      attributes = vendor_data[:attributes]
+      expect(vendor_data).to have_key(:id)
+      expect(vendor_data[:id]).to be_a(String)
+
+      expect(attributes).to have_key(:name)
+      expect(attributes[:name]).to be_a(String)
+
+      expect(attributes).to have_key(:description)
+      expect(attributes[:description]).to be_a(String)
+
+      expect(attributes).to have_key(:contact_name)
+      expect(attributes[:contact_name]).to be_a(String)
+
+      expect(attributes).to have_key(:contact_phone)
+      expect(attributes[:contact_phone]).to be_a(String)
+
+      expect(attributes).to have_key(:credit_accepted)
+    end
   end
 end

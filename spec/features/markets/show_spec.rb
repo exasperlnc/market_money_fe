@@ -14,9 +14,7 @@ RSpec.describe 'Market Show Page' do
 
   it 'shows vendors' do
     visit '/markets/322458'
-    
-    expect(page).to have_content()
-    expect(page).to have_content()
-    expect(page).to have_content()
+
+    expect(page).to have_content("The Charcuterie Corner")
   end
 end
